@@ -81,16 +81,16 @@ public class RequestMadeImpl implements RequestMade {
 		requestMadeRepository.save(requestMadeNew);
 	}
 
-	public boolean checkParams(ParamValidateStringDto params) {
-		boolean resp = true;
-		String openBracket = params.getBracketSymbols().getOpen();
-		String closeBracket = params.getBracketSymbols().getClose();
-
-		if (openBracket == null || openBracket.isEmpty() || closeBracket == null || closeBracket.isEmpty()
-				|| params.getString() == null || params.getString().isEmpty() || params.getUsername() == null
-				|| params.getUsername().isEmpty())
-			resp = false;
-
-		return resp;
-	}
+//	public boolean checkParams(ParamValidateStringDto params) {
+//		boolean resp = true;
+//		String openBracket = params.getBracketSymbols().getOpen();
+//		String closeBracket = params.getBracketSymbols().getClose();
+//
+//		if (openBracket == null || openBracket.isEmpty() || closeBracket == null || closeBracket.isEmpty()
+//				|| params.getString() == null || params.getString().isEmpty() || params.getUsername() == null
+//				|| params.getUsername().isEmpty())
+//			resp = false;
+//
+//		return resp;
+//	}
 }

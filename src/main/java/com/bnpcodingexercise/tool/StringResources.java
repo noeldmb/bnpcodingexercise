@@ -16,10 +16,14 @@ public class StringResources {
 	public static boolean validBraketsInString(ParamValidateStringDto params) {
 		char openBraket = params.getBracketSymbols().getOpen().charAt(0);
 		char closeBraket = params.getBracketSymbols().getClose().charAt(0);
+		
+		String sOpenBracket = params.getBracketSymbols().getOpen();
+		String sCloseBracket = params.getBracketSymbols().getClose();
+		
 		String symbols = params.getBracketSymbols().getOpen().concat(params.getBracketSymbols().getClose());
 		Deque<Character> deque = new LinkedList<>();
 
-		if (symbolsAllowed.contains(symbols)) {
+		if (symbolsAllowed.contains(symbols) && (params.getString().contains(sOpenBracket) || (params.getString().contains(sCloseBracket)))) {
 			for (char ch : params.getString().toCharArray()) {
 				if (ch == openBraket || ch == closeBraket) {
 					if (ch == openBraket) {
@@ -38,5 +42,18 @@ public class StringResources {
 		}
 
 		return deque.isEmpty();
+	}
+	
+	public static boolean checkParams(ParamValidateStringDto params) {
+		boolean resp = true;
+		String openBracket = params.getBracketSymbols().getOpen();
+		String closeBracket = params.getBracketSymbols().getClose();
+
+		if (openBracket == null || openBracket.isEmpty() || closeBracket == null || closeBracket.isEmpty()
+				|| params.getString() == null || params.getString().isEmpty() || params.getUsername() == null
+				|| params.getUsername().isEmpty())
+			resp = false;
+
+		return resp;
 	}
 }

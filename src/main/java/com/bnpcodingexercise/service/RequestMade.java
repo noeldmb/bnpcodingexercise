@@ -21,5 +21,4 @@ public interface RequestMade {
 
 	List<RequestMadeDto> getStrngAllFilters(ParamAllFilterDto params);
 
-	boolean checkParams(@Valid ParamValidateStringDto params);
 }

@@ -33,7 +33,7 @@ public class StringController {
 	@PostMapping("bracket-service/validate")
 	public ResponseEntity<String> validateString(@Valid @RequestBody ParamValidateStringDto params) {
 
-		if (requestMade.checkParams(params)) {
+		if (StringResources.checkParams(params)) {
 			if (requestMade.validateString(params).equals(StringResources.VALID)) {
 				return new ResponseEntity<String>(StringResources.VALID, HttpStatus.OK);
 			} else {
